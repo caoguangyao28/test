@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>jq css</title>
+    <script src="../js/vendor/jquery-2.1.1.min.js"></script>
+    <style>
+        .test{
+            width: 100px;
+            height: 400px;
+            background: red;
+            float: left;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#test').css('margin-left','100px');
+            var test = GetAppStyle();
+            console.log(test);
+        })
+        function GetAppStyle(){//获取设备类型
+            var platform;
+            var userAgentT = navigator.userAgent;
+            console.log(userAgentT);
+            if ((userAgentT.match(/(Android)/i))) {
+                platform = 'Android';
+            } else {
+                if ((userAgentT.match(/(iPhone|iPod|ios|iPad)/i))) {
+                    platform = 'ios';
+                } else {
+                    if ((userAgentT.match(/(Windows phone)/i))) {
+                        platform = 'Windows phone';
+                    } else {
+                        platform = 'pc browser';
+                    }
+                }
+            }
+            return platform;
+        }
+    </script>
+</head>
+<body>
+    <div class="test" id="test">
+
+    </div>
+</body>
+</html>

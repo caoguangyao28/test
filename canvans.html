@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vendor/jquery-2.1.1.min.js"></script>
+    <style>
+        @keyframes myfirst
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+
+        @-moz-keyframes myfirst /* Firefox */
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+
+        @-webkit-keyframes myfirst /* Safari and Chrome */
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+        @-webkit-keyframes myfirst2 /* Safari and Chrome */
+        {
+            0%   {background:red;}
+            25%  {background:yellow;}
+            50%  {background:blue;}
+            75%  {background:green;}
+            100% {background:red;}
+        }
+        @-webkit-keyframes myfirst3 /* Safari and Chrome */
+        {
+            0%   {border-bottom-color:red;}
+            25%  {border-bottom-color:yellow;}
+            50%  {border-bottom-color:blue;}
+            75%  {border-bottom-color:green;}
+            100% {border-bottom-color:red;}
+        }
+        @-moz-keyframes myfirst2 /* Firefox */
+        {
+            0%   {background:red;}
+            25%  {background:yellow;}
+            50%  {background:blue;}
+            75%  {background:green;}
+            100% {background:red;}
+        }
+        @-o-keyframes myfirst /* Opera */
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+        div.test1
+        {
+            width:100px;
+            height:100px;
+            background:red;
+            animation:myfirst 2s;
+            position:relative;
+            animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation:myfirst 2s infinite; /* Firefox */
+            -webkit-animation:myfirst 2s infinite; /* Safari and Chrome */
+            -o-animation:myfirst 5s; /* Opera */
+        }
+        #myCanvas{
+            animation:myfirst2 2s;
+            animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation:myfirst 2s infinite; /* Firefox */
+            -webkit-animation:myfirst 2s infinite; /* Safari and Chrome */
+            -o-animation:myfirst 5s; /* Opera */
+        }
+        div.lunliu
+        {
+            width:100px;
+            height:100px;
+            background:red;
+            position:relative;
+            animation-name:myfirstlunliu;
+            animation-duration:5s;
+            animation-timing-function:linear;
+            animation-delay:2s;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+            animation-play-state:running;
+            /* Firefox: */
+            -moz-animation-name:myfirst;
+            -moz-animation-duration:5s;
+            -moz-animation-timing-function:linear;
+            -moz-animation-delay:2s;
+            -moz-animation-iteration-count:infinite;
+            -moz-animation-direction:alternate;
+            -moz-animation-play-state:running;
+            /* Safari and Chrome: */
+            -webkit-animation-name:myfirst;
+            -webkit-animation-duration:5s;
+            -webkit-animation-timing-function:linear;
+            -webkit-animation-delay:2s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-direction:alternate;
+            -webkit-animation-play-state:running;
+            /* Opera: */
+            -o-animation-name:myfirst;
+            -o-animation-duration:5s;
+            -o-animation-timing-function:linear;
+            -o-animation-delay:2s;
+            -o-animation-iteration-count:infinite;
+            -o-animation-direction:alternate;
+            -o-animation-play-state:running;
+        }
+        .tuoyuan{
+            radius:60px;
+            -webkit-border-radius: 60px;
+            width: 100px;
+            height: 80px;
+            background-color: red;
+            animation:myfirst2 2s;
+            animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation:myfirst 2s infinite; /* Firefox */
+            -webkit-animation:myfirst 2s infinite; /* Safari and Chrome */
+            -o-animation:myfirst 5s; /* Opera */
+        }
+
+        .pop {
+            width: 200px;
+            height: 100px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 50px;
+            margin-top: 20px;
+            position: relative;
+            background-color: red;
+            animation:myfirst2 2s;
+            animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation:myfirst2 2s infinite; /* Firefox */
+            -webkit-animation:myfirst2 2s infinite; /* Safari and Chrome */
+            -o-animation:myfirst2 5s; /* Opera */
+        }
+
+        .pop:after {
+            content: "";
+            /*border: 0 solid transparent;*/
+            right: 0;
+            border-bottom: 30px solid red;
+            -moz-border-radius: 0 0 0 200px;
+            -webkit-border-radius: 0 0 0 200px;
+            border-radius: 0 0 0 200px;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin-top: 20px;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            position: absolute;
+            top: 50px;
+            animation:myfirst3 2s;
+            animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation:myfirst2 2s infinite; /* Firefox */
+            -webkit-animation:myfirst3 2s infinite; /* Safari and Chrome */
+            -o-animation:myfirst3 2s infinite; /* Opera */
+        }
+
+        .tail-lefttop {
+            border: 0 solid transparent;
+            border-top: 30px solid #669;
+            -moz-border-radius: 100px 0 0 0;
+            -webkit-border-radius: 100px 0 0 0;
+            border-radius: 100px 0 0 0;
+            width: 100px;
+            height: 100px;
+        }
+
+        .tail-righttop {
+            border: 0 solid transparent;
+            border-top: 30px solid #669;
+            -moz-border-radius: 0 100px 0 0;
+            -webkit-border-radius: 0 100px 0 0;
+            border-radius: 0 100px 0 0;
+            width: 50%;
+            height: 50%;
+        }
+
+        .tail-rightbottom {
+            border: 0 solid transparent;
+            border-bottom: 30px solid #669;
+            -moz-border-radius: 0 0 100px 0;
+            -webkit-border-radius: 0 0 100px 0;
+            border-radius: 0 0 100px 0;
+            width: 100px;
+            height: 100px;;
+        }
+
+        .tail-leftbottom {
+            border: 0 solid transparent;
+            border-bottom: 30px solid #669;
+            -moz-border-radius: 0 0 0 100px;
+            -webkit-border-radius: 0 0 0 100px;
+            border-radius: 0 0 0 100px;
+            width: 100px;
+            height: 100px;
+        }
+        @keyframes myfirstlunliu
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+
+        @-moz-keyframes myfirstlunliu /* Firefox */
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+
+        @-webkit-keyframes myfirstlunliu /* Safari and Chrome */
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+
+        @-o-keyframes myfirstlunliu /* Opera */
+        {
+            0%   {background:red; left:0px; top:0px;}
+            25%  {background:yellow; left:200px; top:0px;}
+            50%  {background:blue; left:200px; top:200px;}
+            75%  {background:green; left:0px; top:200px;}
+            100% {background:red; left:0px; top:0px;}
+        }
+    </style>
+
+</head>
+<body>
+<!--<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">-->
+
+<!--</canvas>-->
+<!--<div class="tuoyuan">-->
+
+<!--</div>-->
+<div class="pop"></div>
+<!--<div class="test1"></div>-->
+<!--<div class="lunliu">-->
+
+<!--</div>-->
+<div class="tail-lefttop">
+
+</div>
+<div style="width: 200px;height: 200px;border: 100px;">
+    <div class="tail-righttop"></div>
+</div>
+<div class="tail-leftbottom"></div>
+<div class="tail-rightbottom"></div>
+<script>
+//    var c=document.getElementById("myCanvas");
+//    var cxt=c.getContext("2d");
+//    cxt.fillStyle="#FF0000";
+//    cxt.beginPath();
+//    cxt.arc(70,18,15,0,Math.PI*2,true);
+//    cxt.closePath();
+//    cxt.fill();
+</script>
+</body>
+</html>

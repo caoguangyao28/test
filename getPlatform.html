@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes"/><!--屏幕自适应-->
+    <meta content="telephone=no" name="format-detection" /><!--忽略将页面中的数字识别为电话号码-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--顶端的状态条样式-->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><!--字体-->
+    <script>
+        function GetAppStyle(){//获取设备类型 无法区别 android平板和android手机
+            var platform;
+            var userAgentT = navigator.userAgent;
+            if ((userAgentT.match(/(Android)/i))) {
+                console.log(userAgentT);
+                platform = 'Android';
+            } else {
+                if ((userAgentT.match(/(iPhone|iPod|ios|iPad)/i))) {
+                    if(userAgentT.match(/(iPhone|iPod|ios)/i)){
+                        platform = 'iPhone';
+                    }else{
+                        platform = 'iPad';
+                    }
+                } else {
+                    if ((userAgentT.match(/(Windows phone)/i))) {
+                        platform = 'Windows phone';
+                    } else {
+                        platform = 'pc browser';
+                    }
+                }
+            }
+            return platform;
+        }
+        var platform = GetAppStyle();
+        console.log(platform);
+    </script>
+</head>
+<body>
+</body>
+</html>

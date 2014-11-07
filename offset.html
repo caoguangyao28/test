@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script>
+        $(function () {
+           var poffset = $("p").offset();
+           alert(poffset.top);
+        });
+    </script>
+</head>
+<body>
+    <p style="margin: 0;padding: 0;">nihao</p>
+</body>
+</html>

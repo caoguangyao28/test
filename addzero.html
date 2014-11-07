@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>补零</title>
+    <script>
+        function zero(num, n) {  //1~9变成01~09
+            return (Array(n).join(0) + num).slice(-n); //
+        }
+//        alert(Array(3).join(0)+11); join函数 将数组中元素连接成一个字符串 默认以 逗号 链接
+        var Myarray = new Array(3);
+        Myarray[0]=1;Myarray[1]=2;Myarray[2]=3;
+        console.log(Myarray.join(0));
+    </script>
+</head>
+<body>
+</body>
+</html>

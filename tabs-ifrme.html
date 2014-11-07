@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>tabs-load</title>
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <style>
+        ul#tabsUl{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: block;
+            overflow: hidden;
+        }
+        ul#tabsUl li{
+            float: left;
+            margin-left: 20px;
+        }
+        .selected{
+            background: #105cb6;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#tabsUl li').each(function () {
+                $(this).on({
+                    click:function(){
+                        var thisItem = $(this);
+                        thisItem.addClass('selected');
+                        thisItem.siblings().each(
+                                function(){
+                                    $(this).removeClass('selected');
+                                }
+                        );
+                        if(thisItem.index() == 0){
+                            $('#mainContent').empty().load('grayImg.html');
+                        }else if(thisItem.index() == 1){
+                            $('#mainContent').empty().load('headNavFloat.html');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<ul id="tabsUl">
+    <li class="selected">test1</li>
+    <li class="">test2</li>
+    <li class="">test3</li>
+</ul>
+<div id="mainContent"></div>
+</body>
+</html>

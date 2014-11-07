@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <!--[if lte IE 8]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body style="margin:0;padding: 0;">
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <canvas id="myCanvas2" width="200" height="100"></canvas>
+    <div id="coordiv" style="float:left;width:199px;height:99px;border:1px solid #c3c3c3"
+         onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"></div>
+    <br />
+    <br />
+    <br />
+    <div id="xycoordinates"></div>
+    <script type="text/javascript">
+        var c = document.getElementById("myCanvas");
+        var b = document.getElementById('test');
+        var cxt = c.getContext('2d');
+        cxt.fillStyle="#FF0000";
+        cxt.fillRect(0,0,150,75);
+
+        var c=document.getElementById("myCanvas2");
+        var cxt2=c.getContext("2d");
+        cxt2.moveTo(10,10);
+        cxt2.lineTo(150,50);
+        cxt2.lineTo(10,50);
+        cxt2.lineTo(150,90);
+        cxt2.stroke();
+        function cnvs_getCoordinates(e)
+        {
+            x=e.clientX;
+            y=e.clientY;
+            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+        }
+
+        function cnvs_clearCoordinates()
+        {
+            document.getElementById("xycoordinates").innerHTML="";
+        }
+    </script>
+</body>
+</html>

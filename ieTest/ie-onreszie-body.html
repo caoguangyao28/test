@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>ie-onreszie(sepcial)</title>
+</head>
+<body onresize="showMsg()" style="height: 100px;background:green;">
+<button onclick="chageBody()"><b>chagebody</b></button>
+</body>
+<script>
+    function showMsg () {
+        console.log('body-change-follow')
+    }
+    function chageBody(){
+        var bodyHeight = document.body.style.height;
+        if(bodyHeight == '800px'){
+            document.body.style.height='400px';
+        }else{
+            document.body.style.height='800px';
+        }
+    }
+</script>
+</html>
